@@ -3,8 +3,8 @@
  * \brief  Monitor class declaration.
  * \author Savindra Kumar
  * \version 1.0
- * \date 2024-2024
- * \bugs no known bugs
+ * \date 2024 - 2026
+ * \bug no known bugs
  * \warning no 
  * \copyright Copyright (c) 2024 by XXX
  * \
@@ -61,18 +61,63 @@ public:
      * \return     false - spo2 level not ok and below SPO2_LIMIT.
      *             true - spo2 level ok
      */    
-    bool monitorSp02();
+     bool monitorSp02();
     
 private:
 
    /**
      * \brief      getSPO2 reading from sensor.
-     * \param[in]  None.
+     * \param[in]  adc measurement channel input.
      * \return     SPO2 level in percentage
      */   
-    uint16_t getSpo2Reading();
+    bool getSpo2Reading(uint8_t adcMeasurementChannel, uint16_t *output);
 
 };
+
+
+/**
+ * \class      ControlAlarm
+ * \brief      This class control the alarm if patient hear rate goes above a limit
+ */
+class ControlAlarm
+{
+
+public:
+
+    /**
+     * \brief      default constructor.
+     * \param[in]  None.
+     * \return     None.
+     */
+	ControlAlarm();
+
+    /**
+     * \brief      default destructor.
+     * \param[in]  None.
+     * \return     None.
+     */
+	~ControlAlarm();
+
+    /**
+     * \brief      read heart rate from renesas ADC
+     * \param[in]  None.
+     * \return     heart rate.
+     */
+	uint16_t readHearRate();
+
+    /**
+     * \brief      control alarm device if heart rate goes above a limit
+     * \param[in]  input - test input
+     * \returnval true - alarm device activated successfully
+     * \returnval false - error while activating alarm device
+     */
+	bool controlAlarmDevice(uint8_t input);
+
+private:
+
+};
+
+
 }
 
 #endif

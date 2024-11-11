@@ -4,7 +4,7 @@
  * \author Savindra Kumar
  * \version 1.0
  * \date 2024-2024
- * \bugs no known bugs
+ * \bug no known bugs
  * \warning no 
  * \copyright Copyright (c) 2024 by XXX
  * \
@@ -54,6 +54,36 @@ uint16_t Monitor::getSpo2Reading()
     
     return spo2Level;
                         
+}
+
+//*****************************************************************************
+ControlAlarm::ControlAlarm()
+{
+
+}
+
+//*****************************************************************************
+ControlAlarm::~ControlAlarm()
+{
+
+}
+
+//*****************************************************************************
+uint16_t ControlAlarm::readHearRate()
+{
+   /**todo: implementation is not started yet as design is not finalized
+	 *
+	 *
+	 */
+}
+
+//*****************************************************************************
+bool ControlAlarm::controlAlarmDevice(uint8_t input)
+{
+  /**todo: implementation is not started yet as design is not finalized
+   *
+   *
+   */
 }
 
 } //namespace Monitoring
